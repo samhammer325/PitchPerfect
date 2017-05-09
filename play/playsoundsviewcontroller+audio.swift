@@ -14,6 +14,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     
     // MARK: Alerts
     
+    
     struct Alerts {
         static let DismissAlert = "Dismiss"
         static let RecordingDisabledTitle = "Recording Disabled"
@@ -32,6 +33,16 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     enum PlayingState { case playing, notPlaying }
     
     // MARK: Audio Functions
+    
+    func setPlayButtonsEnabled(_ enabled: Bool) {
+        snailButton.isEnabled = enabled
+        chipmunkButton.isEnabled = enabled
+        rabbitButton.isEnabled = enabled
+        vaderButton.isEnabled = enabled
+        echoButton.isEnabled = enabled
+        reverbButton.isEnabled = enabled
+    }
+    
     
     func setupAudio() {
         // initialize (recording) audio file
@@ -153,18 +164,11 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         }
     }
     
-    func setPlayButtonsEnabled(_ enabled: Bool) {
-        snailButton.isEnabled = enabled
-        chipmunkButton.isEnabled = enabled
-        rabbitButton.isEnabled = enabled
-        vaderButton.isEnabled = enabled
-        echoButton.isEnabled = enabled
-        reverbButton.isEnabled = enabled
-    }
 
     func showAlert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
 }

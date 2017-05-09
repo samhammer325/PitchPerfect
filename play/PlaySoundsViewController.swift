@@ -20,6 +20,20 @@ class PlaySoundsViewController: UIViewController  {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupAudio()
+        snailButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        chipmunkButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        rabbitButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        vaderButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        echoButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        reverbButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        stopButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        
+    }
+
+
     var audioFile:AVAudioFile!
     var audioEngine:AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
@@ -49,11 +63,6 @@ class PlaySoundsViewController: UIViewController  {
 
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
         stopAudio()
-    }
-
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      setupAudio()
     }
 
     override func viewWillAppear(_ animated: Bool) {
